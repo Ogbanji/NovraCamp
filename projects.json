@@ -1,0 +1,38 @@
+{
+  "status": "success",
+  "result": [
+    {
+      "projectId": "novra-camp-757b3",
+      "projectNumber": "428787916668",
+      "displayName": "Novra Camp",
+      "name": "projects/novra-camp-757b3",
+      "resources": {
+        "hostingSite": "novra-camp-757b3"
+      },
+      "state": "ACTIVE",
+      "etag": "1_1cfd743d-bf2f-451d-b732-75998a429c05"
+    },
+    {
+      "projectId": "studio-2866892732-78ab2",
+      "projectNumber": "573306078412",
+      "displayName": "Firebase app",
+      "name": "projects/studio-2866892732-78ab2",
+      "resources": {
+        "hostingSite": "studio-2866892732-78ab2"
+      },
+      "state": "ACTIVE",
+      "etag": "1_1218f2f2-0f9c-4a20-84da-063fbfd7db61"
+    },
+    {
+      "projectId": "studio-671589849-9ebc2",
+      "projectNumber": "437934682571",
+      "displayName": "Firebase app",
+      "name": "projects/studio-671589849-9ebc2",
+      "resources": {
+        "hostingSite": "studio-671589849-9ebc2"
+      },
+      "state": "ACTIVE",
+      "etag": "1_c3f2f418-46f1-47d0-bb95-c74a6b2f6d7e"
+    }
+  ]
+}

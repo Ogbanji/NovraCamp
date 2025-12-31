@@ -10,12 +10,28 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-# *.local
-# .env
+*.local
+
+# Environment files - DO NOT COMMIT!
+.env
+.env.local
+.env.production
+
+# Firebase service account keys (IMPORTANT: Never commit these!)
+serviceAccountKey.json
+*-firebase-adminsdk-*.json
+firebase-service-account.json
+
+# Firebase config
+.runtimeconfig.json
+
+# Supabase
+.supabase/
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
 *.suo
@@ -23,3 +39,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Build logs
+build_error.txt
+build_log.txt
+build_log_fixed.txt
+firebase-debug.log
+dataconnect-debug.log
+pglite-debug.log

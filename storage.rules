@@ -1,0 +1,49 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && 
+             firestore.exists(/databases/(default)/documents/admins/$(request.auth.uid));
+    }
+    
+    // Task submission proof images
+    match /submissions/{userId}/{submissionId}/{fileName} {
+      // Allow users to upload their own submission proofs
+      allow create: if request.auth != null && request.auth.uid == userId;
+      
+      // Allow users to read their own files, admins can read all
+      allow read: if request.auth != null && 
+                    (request.auth.uid == userId || isAdmin());
+      
+      // Only admins can delete submission files
+      allow delete: if isAdmin();
+    }
+    
+    // Profile images
+    match /profiles/{userId}/{fileName} {
+      // Allow users to upload their own profile images
+      allow create, update: if request.auth != null && request.auth.uid == userId;
+      
+      // Anyone can read profile images
+      allow read: if true;
+      
+      // Users can delete their own images, admins can delete any
+      allow delete: if request.auth != null && 
+                      (request.auth.uid == userId || isAdmin());
+    }
+    
+    // Campaign images - only admins
+    match /campaigns/{campaignId}/{fileName} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    
+    // Admin only files
+    match /admin/{allPaths=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
